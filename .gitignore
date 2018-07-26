@@ -1,0 +1,8 @@
+
+*.class
+target/*
+reports/*
+.metadata
+.project
+.classpath
+.settings
