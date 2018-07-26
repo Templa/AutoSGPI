@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>sodimac</groupId>
+  <artifactId>solicitudes</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <developers>
+    <developer>
+      <name>Jose Luis Fuenzalida</name>
+      <email>jfuenzalidacastro@gmail.com</email>
+    </developer>
+  </developers>
+  <!--  
+    <name>solicitudes</name>
+    <url>http://maven.apache.org</url>
+  -->
+ <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <compiler.version>3.3</compiler.version>
+    <surefire.version>2.19.1</surefire.version>
+    <surefire.report.version>2.20</surefire.report.version>
+    <selenium.version>3.5.2</selenium.version>
+    <junit.version>4.11</junit.version>
+    <cucumber.version>1.2.5</cucumber.version>
+    <cucumber.picocontainer.version>1.2.5</cucumber.picocontainer.version>
+    <cucumber-extentsreport.version>3.0.2</cucumber-extentsreport.version>
+    <aventstack.extentreports.version>3.1.2</aventstack.extentreports.version>
+    <masterthought.cucumber.reporting>3.16.0</masterthought.cucumber.reporting>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-core</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>info.cukes</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+	<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer -->
+	<dependency>
+	  <groupId>info.cukes</groupId>
+	  <artifactId>cucumber-picocontainer</artifactId>
+	  <version>${cucumber.picocontainer.version}</version>
+	  <scope>test</scope>
+	</dependency>
+
+    <!-- Cucumber Extent advance reporting -->
+    <dependency>
+   	  <groupId>com.vimalselvam</groupId>
+    	  <artifactId>cucumber-extentsreport</artifactId>
+    	  <version>${cucumber-extentsreport.version}</version>
+	</dependency>
+	<dependency>
+      <groupId>com.aventstack</groupId>
+   	  <artifactId>extentreports</artifactId>
+    	  <version>${aventstack.extentreports.version}</version>
+    	</dependency>		
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler.version}</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+          </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+    		</configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>${surefire.report.version}</version>
+      </plugin>   
+    </plugins>
+  </build>
+
+</project>
