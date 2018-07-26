@@ -1,9 +1,5 @@
 package sodimac;
 
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-
 import java.io.File;
 
 import org.openqa.selenium.OutputType;
@@ -14,11 +10,14 @@ import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import com.google.common.io.Files;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import utils.DriverManagerAbstract;
 import utils.DriverManagerFactory;
+import utils.DriverManagerFactory.DriverType;
 import utils.PropertyReader;
 import utils.Utils;
-import utils.DriverManagerFactory.DriverType;
 
 /*
  * Clase Global para el uso de Hooks Before y After

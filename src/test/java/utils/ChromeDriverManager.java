@@ -1,14 +1,14 @@
 package utils;
 
+import java.io.File;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.io.File;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 public class ChromeDriverManager extends DriverManagerAbstract {
 
