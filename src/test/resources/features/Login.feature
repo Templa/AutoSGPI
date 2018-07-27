@@ -11,4 +11,4 @@ Feature: Login
 
     Examples: loginUsuarioIncorrecto
       | Usuario   | Contrasena | Mensaje           |
-      | iromannn  | 123        | usuario no valido | 
+      | iromannn  | sodimac123 | usuario no valido | 
