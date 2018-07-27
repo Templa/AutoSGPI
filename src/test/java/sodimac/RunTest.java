@@ -31,6 +31,7 @@ import utils.Utils;
   * features = "src/test/resources/"
   * glue = {"sodimac"}
   * Principales Tags:
+  * @login
   */
 
 public class RunTest {
