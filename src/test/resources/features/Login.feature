@@ -10,6 +10,7 @@ Feature: Login
     Then El sistema muestra el mensaje "<Mensaje>"
 
     Examples: loginUsuarioIncorrecto
-      | Usuario  | Contrasena | Mensaje                                 |
-      | iromannn | 123        | Usuario o contrase                      |
-      |          |            | Por favor ingresa los datos solicitados |
+      | Usuario             | Contrasena | Mensaje                                 |
+      | iromannnasdadsasdad | 123        | Usuario o contraseña no valido          |
+      | iroman              | sda2ddsa   | Usuario o contraseña no valido          |
+      |                     |            | Por favor ingresa los datos solicitados |
