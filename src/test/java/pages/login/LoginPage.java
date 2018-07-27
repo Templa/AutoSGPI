@@ -17,7 +17,7 @@ public class LoginPage extends BasePageAbstract {
 
   private URL urlSite;
   
-  private final String title = "Sistema de Gestión de Proyecto e Infraestructura";
+  private final String title = "Sistema de GestiÃ³n de Proyecto e Infraestructura";
 
   @FindBy(id = "user")
   private WebElement usuarioField;
