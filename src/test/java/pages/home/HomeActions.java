@@ -1,5 +1,6 @@
 package pages.home;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import static org.junit.Assert.*;
@@ -32,22 +33,21 @@ public class HomeActions {
   }
   
   public void validarOpcionEnMenuPrincipal(String menuOption) throws Throwable {
-    boolean flag = false;
-    try {
-      if (homePage.getAsideMenuList().size() > 0) {
-        for(WebElement element : homePage.getAsideMenuList()) {
-          if(element.getText().contains(menuOption)) {
-            flag = true;
-          }
-        }
-        // Aqui valido si encuentro el elemento en el menu
-        assertTrue("FAILED", flag);
-      } else {
-        fail("FAILED: NO EXISTEN AVISOS EN EL MENU PRINCIPAL");
-      }
-    } catch (Throwable e) {
-      fail("FAILED: deleteAdFavorito: " + e.getMessage());
-    }
+    WebElement elementoEncontradoMenuPrincipal;
+    elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
+    assertNotNull("FAILED: elementoEncontradoMenuPrincipal es NULL", elementoEncontradoMenuPrincipal);
+    elementoEncontradoMenuPrincipal.click();
   }
   
+  public void validarOpcionEnMenuSecundario(String menuOption, String subMenu) throws Throwable {
+
+    WebElement elementoEncontradoMenuPrincipal = null;
+    elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
+    assertNotNull("FAILED: elementoEncontradoMenuPrincipal es NULL", elementoEncontradoMenuPrincipal);
+
+    List<WebElement> subMenuList = elementoEncontradoMenuPrincipal.findElements(By.xpath("//ul/li/a[@class='treeview-item']"));
+    WebElement elementoEncontradoMenuSecundario = null;
+    elementoEncontradoMenuSecundario = homePage.findOneElementInList(subMenuList, subMenu);
+    assertNotNull("FAILED: elementoEncontradoMenuSecundario es NULL", elementoEncontradoMenuSecundario);
+  }
 }

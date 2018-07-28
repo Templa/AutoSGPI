@@ -48,6 +48,11 @@ public class HomeSteps {
     homeActions.validarOpcionEnMenuPrincipal(menuOption);
   }
 
+  @And("^En la opcion \"(.*?)\" se ve el submenu \"(.*?)\"$")
+  public void validarSubMenu(String menuOption, String subMenu) throws Throwable {
+    homeActions.validarOpcionEnMenuSecundario(menuOption, subMenu);
+  }
+  
   
 /*
  *   @Then("^El sistema muestra el mensaje \"(.*?)\"$")
