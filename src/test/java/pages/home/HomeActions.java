@@ -2,7 +2,6 @@ package pages.home;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import static org.junit.Assert.*;
 
 import java.util.List;
@@ -25,8 +24,6 @@ public class HomeActions {
   
   public void validarRol(String rol) throws Throwable {
     String userDesignation =  homePage.getUserDesignationText().getText();
-    System.out.println("***" + homePage.getUserDesignationText().getText());
-    System.out.println("***" + rol);
     assertTrue("FAILED: validarRol", userDesignation.contains(rol));
   }
   
