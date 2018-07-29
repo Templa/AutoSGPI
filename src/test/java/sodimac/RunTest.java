@@ -23,7 +23,7 @@ import utils.Utils;
     "html:target/Destination",
     "json:target/Destination/cucumber-report.json",
     "com.cucumber.listener.ExtentCucumberFormatter:"},
-    tags = {"@loginJefeArea"})
+    tags = {"@Home"})
 
  /*
   * GENERA REPORTES EN HTML Y JSON EN LA RUTA /target/Destination

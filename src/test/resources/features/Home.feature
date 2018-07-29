@@ -141,4 +141,27 @@ Feature: Home
       | Usuario  | Contrasena | Rol                      | 
       | rurrutia | sodimac123 | Subgerencia Obras Nuevas |
  
+  @loginUsuarioSolicitante
+  Scenario Outline: Inicio de sesión con usuario Solicitante
+    Given Ingresar en el Portal SGPI
+    When Ingresar Usuario "<Usuario>"
+    And Ingresar Password "<Contrasena>"
+    And Presionar Ingresar
+    And El usuario ve la pagina de Dashboard
+    Then Presionar icono Hamburguesa
+    And El usuario ve su rol "<Rol>"
+    And El usuario ve la opcion "Dashboard" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Solicitudes" en el Menu del lado izquierdo de la pantalla
+ 	And En "Solicitudes" se ve el submenu "Ingreso de Solicitudes"
+ 	And En "Solicitudes" se ve el submenu "Seguimiento de Solicitudes"
+ 	And El usuario ve la opcion "Alertas" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Notificaciones" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Documentos" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Skype" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "WhatsApp" en el Menu del lado izquierdo de la pantalla
+	
+	Examples: loginUsuarioSolicitante
+      | Usuario    | Contrasena | Rol           | 
+      | ycastaneda | sodimac123 | Planificación |
+ 
       
