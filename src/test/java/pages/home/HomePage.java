@@ -25,6 +25,9 @@ public class HomePage extends BasePageAbstract {
   @FindBy(css = "#contenedorNav > header > a.app-sidebar__toggle")
   private WebElement hamburguesaButton;
   
+  @FindBy(xpath = "//a[@data-original-title = 'Logout']")
+  private WebElement logoutButton;
+
   // Constructor
   public HomePage(WebDriver driver) {
     super(driver);
@@ -45,6 +48,10 @@ public class HomePage extends BasePageAbstract {
 
   public WebElement getHamburguesaButton() {
     return hamburguesaButton;
+  }
+
+  public WebElement getLogoutButton() {
+    return logoutButton;
   }
 
 }
