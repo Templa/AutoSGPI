@@ -33,21 +33,27 @@ public class HomeActions {
   }
   
   public void validarOpcionEnMenuPrincipal(String menuOption) throws Throwable {
-    WebElement elementoEncontradoMenuPrincipal;
+    WebElement elementoEncontradoMenuPrincipal = null;
     elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
     assertNotNull("FAILED: elementoEncontradoMenuPrincipal es NULL", elementoEncontradoMenuPrincipal);
-    elementoEncontradoMenuPrincipal.click();
   }
-  
-  public void validarOpcionEnMenuSecundario(String menuOption, String subMenu) throws Throwable {
 
+  public void validarOpcionEnMenuSecundario(String menuOption, String subMenu) throws Throwable {
+    // Obtengo el elemento principal
     WebElement elementoEncontradoMenuPrincipal = null;
     elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
     assertNotNull("FAILED: elementoEncontradoMenuPrincipal es NULL", elementoEncontradoMenuPrincipal);
 
+    // Expando el submenu
+    homePage.setAttribute(elementoEncontradoMenuPrincipal, "class", "treeview is-expanded");
+    // Obtengo la lista de sub elementos
     List<WebElement> subMenuList = elementoEncontradoMenuPrincipal.findElements(By.xpath("//ul/li/a[@class='treeview-item']"));
     WebElement elementoEncontradoMenuSecundario = null;
+    // Busco el elemento en el submenu
     elementoEncontradoMenuSecundario = homePage.findOneElementInList(subMenuList, subMenu);
+    // Oculto el submenu, esto puede ser opcional
+    // si no oculto el submenu, se quedara desplegado el submenu2
+    homePage.setAttribute(elementoEncontradoMenuPrincipal, "class", "treeview");
     assertNotNull("FAILED: elementoEncontradoMenuSecundario es NULL", elementoEncontradoMenuSecundario);
   }
 }

@@ -44,11 +44,11 @@ public class HomeSteps {
   }
 
   @And("^El usuario ve la opcion \"(.*?)\" en el Menu del lado izquierdo de la pantalla$")
-  public void Notificaciones(String menuOption) throws Throwable {
+  public void usuarioVeOpcionEnMenuPrimario(String menuOption) throws Throwable {
     homeActions.validarOpcionEnMenuPrincipal(menuOption);
   }
 
-  @And("^En la opcion \"(.*?)\" se ve el submenu \"(.*?)\"$")
+  @And("^En \"(.*?)\" se ve el submenu \"(.*?)\"$")
   public void validarSubMenu(String menuOption, String subMenu) throws Throwable {
     homeActions.validarOpcionEnMenuSecundario(menuOption, subMenu);
   }
