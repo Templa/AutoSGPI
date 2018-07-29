@@ -23,7 +23,7 @@ import utils.Utils;
     "html:target/Destination",
     "json:target/Destination/cucumber-report.json",
     "com.cucumber.listener.ExtentCucumberFormatter:"},
-    tags = {"@loginGerentePlanificacionDesarrolloProyectos"})
+    tags = {"@loginGerenteProyectosChile"})
 
  /*
   * GENERA REPORTES EN HTML Y JSON EN LA RUTA /target/Destination
@@ -31,7 +31,8 @@ import utils.Utils;
   * features = "src/test/resources/"
   * glue = {"sodimac"}
   * Principales Tags:
-  * @login
+  * @Login
+  * @Home
   */
 
 public class RunTest {
