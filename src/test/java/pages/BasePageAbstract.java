@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,6 +8,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -120,7 +122,7 @@ public abstract class BasePageAbstract {
     }
   }
 
-  public WebElement moveTo(WebElement element)  throws Throwable {
+  public WebElement moveTo(WebElement element) throws Throwable {
     //El valor 100 en el eje Y es para que el elemento no quede "tapado" por otro elemento
     int elementPosition = element.getLocation().getY() - 100;
     try {
@@ -132,4 +134,47 @@ public abstract class BasePageAbstract {
     return element;
   }
 
+  /**
+   * mouseOver
+   * @param element
+   * @throws InterruptedException
+   */
+  public void mouseOver(WebElement element) throws Throwable {
+    Actions action = new Actions(driver);
+    action.moveToElement(element).build().perform();
+    driver.wait(500);
+  }
+  
+  /**
+   * findOneElementInList, It needs 2 params, one list and the object that you want to find in the list
+   * @param listElements
+   * @param element
+   * @return WebElement
+   */
+  public WebElement findOneElementInList(List<WebElement> listElements, String element) {
+    try {
+      if (listElements.size() > 0) {
+        for(WebElement findElement : listElements) {
+          if(findElement.getText().contains(element)) {
+            return findElement;
+          }
+        }
+      return null;
+    } else 
+      return null;
+    } catch (Throwable e) {
+      return null;
+    }
+  }
+  
+  /**
+   * setAttribute, It sets any of the attribute value of a WebElement
+   * @param element WebElement
+   * @param attName String
+   * @param attValue String
+   */
+  public void setAttribute(WebElement element, String attName, String attValue) throws Throwable {
+    ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);",
+            element, attName, attValue);
+  }
 }

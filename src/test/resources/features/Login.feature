@@ -1,4 +1,4 @@
-@login
+@Login
 Feature: Login
 
   @loginUsuarioIncorrecto
