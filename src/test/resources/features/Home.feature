@@ -76,3 +76,69 @@ Feature: Home
 	Examples: loginGerenteProyectosChile
       | Usuario   | Contrasena | Rol                                               | 
       | jvaliente | sodimac123 | Gerencia de Planificacion, Desarrollo y Proyectos |
+
+  @loginSubgerenteDesarrolloPlanificacion
+  Scenario Outline: Inicio de sesión con usuario Subgerente Desarrollo Y Planificacion 
+    Given Ingresar en el Portal SGPI
+    When Ingresar Usuario "<Usuario>"
+    And Ingresar Password "<Contrasena>"
+    And Presionar Ingresar
+    And El usuario ve la pagina de Dashboard
+    Then Presionar icono Hamburguesa
+    And El usuario ve su rol "<Rol>"
+    And El usuario ve la opcion "Dashboard" en el Menu del lado izquierdo de la pantalla
+	And El usuario ve la opcion "Sol.Desarrollo Inmobiliario" en el Menu del lado izquierdo de la pantalla
+	And En "Sol.Desarrollo Inmobiliario" se ve el submenu "Seg. General de Solicitudes"
+	And En "Sol.Desarrollo Inmobiliario" se ve el submenu "Seg.Detalle de Solicitudes"
+ 	And El usuario ve la opcion "Sol.Arriendo de Espacios" en el Menu del lado izquierdo de la pantalla
+ 	And En "Sol.Arriendo de Espacios" se ve el submenu "Seguimiento Sol. Enviadas"
+ 	And El usuario ve la opcion "Administrar" en el Menu del lado izquierdo de la pantalla
+ 	And En "Administrar" se ve el submenu "Usuarios"
+ 	And En "Administrar" se ve el submenu "Roles"
+ 	And En "Administrar" se ve el submenu "Perfiles"
+ 	And En "Administrar" se ve el submenu "Mantenedor Tipo Solicitudes"
+ 	And El usuario ve la opcion "Alertas" en el Menu del lado izquierdo de la pantalla
+ 	# Consultar si aplica
+ 	# And El usuario ve la opcion "Reportes" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Notificaciones" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Documentos" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Skype" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "WhatsApp" en el Menu del lado izquierdo de la pantalla
+	
+	Examples: loginSubgerenteDesarrolloPlanificacion
+      | Usuario  | Contrasena | Rol                    | 
+      | cwaidele | sodimac123 | Subgerencia Desarrollo |
+
+  @loginJefeArea
+  Scenario Outline: Inicio de sesión con usuario Jefe de Area
+    Given Ingresar en el Portal SGPI
+    When Ingresar Usuario "<Usuario>"
+    And Ingresar Password "<Contrasena>"
+    And Presionar Ingresar
+    And El usuario ve la pagina de Dashboard
+    Then Presionar icono Hamburguesa
+    And El usuario ve su rol "<Rol>"
+    And El usuario ve la opcion "Dashboard" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Sol.Proyectos Chile" en el Menu del lado izquierdo de la pantalla
+ 	And En "Sol.Proyectos Chile" se ve el submenu "Ingreso de Solicitudes"
+ 	And En "Sol.Proyectos Chile" se ve el submenu "Seguimiento Sol. Recibidas"
+ 	And En "Sol.Proyectos Chile" se ve el submenu "Seguimiento Sol. Enviadas"
+ 	And El usuario ve la opcion "Administrar" en el Menu del lado izquierdo de la pantalla
+ 	And En "Administrar" se ve el submenu "Usuarios"
+ 	And En "Administrar" se ve el submenu "Roles"
+ 	And En "Administrar" se ve el submenu "Perfiles"
+ 	And En "Administrar" se ve el submenu "Mantenedor Tipo Solicitudes"
+ 	And El usuario ve la opcion "Mesas de Trabajo" en el Menu del lado izquierdo de la pantalla
+ 	And En "Mesas de Trabajo" se ve el submenu "Ver M.T"
+ 	And En "Mesas de Trabajo" se ve el submenu "Crear M.T"
+ 	And El usuario ve la opcion "Alertas" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Notificaciones" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Documentos" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "Skype" en el Menu del lado izquierdo de la pantalla
+ 	And El usuario ve la opcion "WhatsApp" en el Menu del lado izquierdo de la pantalla
+	
+	Examples: loginJefeArea
+      | Usuario  | Contrasena | Rol                      | 
+      | rurrutia | sodimac123 | Subgerencia Obras Nuevas |
+ 
+      
