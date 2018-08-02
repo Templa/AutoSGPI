@@ -2,6 +2,7 @@ package pages.solicitudes;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import pages.login.LoginPage;
 
@@ -16,16 +17,26 @@ public class SolicitudesActions {
 		    solicitudesPage = new SolicitudesPage(driver);
 		  }	  
 	  
+	   public void validarTituloSolicitudes() throws Throwable {
+	     assertTrue("FAILED: validarTituloSolicitudes waitVisibilityOfElement",
+	         solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFormSolicitudTitle(), 10));
+	     assertTrue("FAILED: validarTituloSolicitudes contains Datos generales de la solicitud",
+	         solicitudesPage.getFormSolicitudTitle().getText().contains(("Datos generales de la solicitud")));
+	   }
+
 	  public void seleccionarTipoSolictud(String solicitud) {
-		  solicitudesPage.getTipoSolicitud().selectByVisibleText(solicitud);
+	    Select solicitudes = new Select(solicitudesPage.getSolicitudList());
+	    solicitudes.selectByVisibleText(solicitud);
 	  }
 	  
 	  public void seleccionarActiviad(String actividad) {
-		  solicitudesPage.getActividades().selectByVisibleText(actividad);
+	    Select actividades = new Select(solicitudesPage.getActividadesList());
+	    actividades.selectByVisibleText(actividad);
 	  }
 	  
 	  public void seleccionarEmpresa(String empresa) {
-		  solicitudesPage.getEmpresaNameList().selectByVisibleText(empresa);
+	    Select empresas = new Select(solicitudesPage.getEmpresaList());
+	    empresas.selectByVisibleText(empresa);
 	  }
 	  
 	  public void validarCargaSodimacPorDefecto() {
@@ -34,10 +45,10 @@ public class SolicitudesActions {
 	  }
 	  
 	  public void seleccionarTienda(String tienda) {
-		  solicitudesPage.getTienda().selectByVisibleText(tienda);
+	    Select tiendas = new Select(solicitudesPage.getTiendaList());
+	    tiendas.selectByVisibleText(tienda);
 	  }
-	  
-	  
+
 	  public void validaCentroCosto(String textoAviso) {
 	      //  if (!solicitudesPage.getEstadoccAvisoLabel().getText().contains(avisoCCtext)){
 	      //  	System.out.println("OK");
@@ -59,8 +70,10 @@ public class SolicitudesActions {
 	  // 12- rmaturana  - Ingresar Solicitud OBRAS NUEVAS -TIENDA NUEVA OBRA GRUESA+HABILITACION P1  (datos incompletos)
 	  // 13- rmaturana  - Ingresar Solicitud OBRAS NUEVAS -TIENDA NUEVA OBRA GRUESA+HABILITACION P1 
 	  // 16- ycastaneda - Ingresar Solicitud Remodelaciones-Remodelacion con cambio de Superficie 
-	  public void seleccionarTipoPrototipo(String prototipo) {
-		  solicitudesPage.getTipoPrototipoList().selectByVisibleText(prototipo);
+	  public void seleccionarTipoPrototipo(String prototipo) throws Throwable {
+	    assertTrue(solicitudesPage.fluentWaitVisibilityOfElement(solicitudesPage.getTipoPrototipoList(), 7));
+	    Select prototipos = new Select(solicitudesPage.getTipoPrototipoList());
+	    prototipos.selectByValue(prototipo);
 	  }
 	  
 	  //14- ecueto     - Ingresar Solicitud PLANOS-PLANOS  Sin ingresar Datos Obligatorios 

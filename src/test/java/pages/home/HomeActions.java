@@ -56,4 +56,22 @@ public class HomeActions {
     homePage.setAttribute(elementoEncontradoMenuPrincipal, "class", "treeview");
     assertNotNull("FAILED: elementoEncontradoMenuSecundario es NULL", elementoEncontradoMenuSecundario);
   }
+
+  public void clickOpcionEnMenuSecundario(String menuOption, String subMenu) throws Throwable {
+    // Obtengo el elemento principal
+    WebElement elementoEncontradoMenuPrincipal = null;
+    elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
+    assertNotNull("FAILED: elementoEncontradoMenuPrincipal es NULL", elementoEncontradoMenuPrincipal);
+
+    // Expando el submenu
+    homePage.setAttribute(elementoEncontradoMenuPrincipal, "class", "treeview is-expanded");
+    // Obtengo la lista de sub elementos
+    List<WebElement> subMenuList = elementoEncontradoMenuPrincipal.findElements(By.xpath("//ul/li/a[@class='treeview-item']"));
+    WebElement elementoEncontradoMenuSecundario = null;
+    // Busco el elemento en el submenu
+    elementoEncontradoMenuSecundario = homePage.findOneElementInList(subMenuList, subMenu);
+
+    elementoEncontradoMenuSecundario.click();
+    Thread.sleep(2000);
+  }
 }

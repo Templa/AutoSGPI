@@ -1,36 +1,35 @@
 package pages.solicitudes;
 
-import java.net.URL;
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import pages.BasePageAbstract;
-import utils.PropertyReader;
 
 public class SolicitudesPage extends BasePageAbstract{
 
 	public SolicitudesPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
+  
+	@FindBy(css = "#formSolicitud > div  h5")
+  private WebElement formSolicitudTitle;
+	
 	  @FindBy(id = "tipoSolicitud")
-	  private Select solicitudList;
+	  private WebElement solicitudList;
 	  
 	  @FindBy(id = "Actividades")
-	  private Select actividadesList;
+	  private WebElement actividadesList;
 	  
 	  @FindBy(id = "EmpresaName")
-	  private Select empresaList;
+	  private WebElement empresaList;
 	  
 	  @FindBy(id = "EmpresaName")
 	  private WebElement empresaField;
 	  
 	  @FindBy(id = "tienda")
-	  private Select tiendaList;
+	  private WebElement tiendaList;
 	  
 	  @FindBy(id = "CC")
 	  private WebElement centroCostoField;
@@ -49,8 +48,8 @@ public class SolicitudesPage extends BasePageAbstract{
 	  
 	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 12. OBRAS NUEVAS -TIENDA NUEVA OBRA GRUESA+HABILITACION P1 
 	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 13. Remodelaciones-Remodelacion con cambio de Superficie
-	@FindBy(id = "jsonform-1-elt-Tippro")
-	private Select tipoPrototipoList;
+	@FindBy(css = "div#formPlus1 select[name='Tippro']")
+	private WebElement tipoPrototipoList;
 
 	@FindBy(id = "_transloadit_jsonform-0-elt-mecsue")
 	private WebElement fileMecanicoSueloButton;
@@ -93,98 +92,120 @@ public class SolicitudesPage extends BasePageAbstract{
 	@FindBy(id = "jsonform-0-elt-descripcion1")
 	private WebElement descripcionDetalladaTextArea;
 	  
+	//Getters 
 
-	  
-	  
-//Getters 
-	  public Select getTipoSolicitud() {
-		  return solicitudList;
-	  }
-	  
-	  public Select getActividades() {
-		  return actividadesList;
-	  }
-	  
-	  public Select getEmpresaNameList() {
-		  return empresaList;
-	  }
-	  
-	  public WebElement getEmpresaNameLabel() {
-		  return empresaField;
-	  }
-	  
-	  public Select getTienda() {
-		  return tiendaList;
-	  }
-	  
-	  public WebElement getEstadoccAvisoLabel() {
-		  return estadoccAvisoLabel;
-	  }
-	  
-	  public WebElement getComentarios() {
-		  return comentariosField;
-	  }
-	  
-	  public WebElement getEnviarButton(){
-			return enviarButton;
-		}
-	  
-	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 12. OBRAS NUEVAS -TIENDA NUEVA OBRA GRUESA+HABILITACION P1 
-	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 13. Remodelaciones-Remodelacion con cambio de Superficie
-	  public Select getTipoPrototipoList(){
-			return tipoPrototipoList;
-		}
+  public WebElement getEmpresaNameLabel() {
+	  return empresaField;
+  }
+  
+  public WebElement getSolicitudList() {
+    return solicitudList;
+  }
 
-		public WebElement getFileMecanicoSueloButton(){
-			return fileKmzButton;
-		}
+  public WebElement getActividadesList() {
+    return actividadesList;
+  }
 
-		public WebElement getFileKmzButton(){
-			return fileKmzButton;
-		}
+  public WebElement getEmpresaList() {
+    return empresaList;
+  }
 
-		public WebElement getFileFotoTerrenoButton(){
-			return fileFotoTerrenoButton;
-		}
+  public WebElement getTiendaList() {
+    return tiendaList;
+  }
 
-		public WebElement getFilePlanoTopograficoButton(){
-			return filePlanoTopograficoButton;
-		}
+  public WebElement getEstadoccAvisoLabel() {
+	  return estadoccAvisoLabel;
+  }
+  
+  public WebElement getComentarios() {
+	  return comentariosField;
+  }
+  
+  public WebElement getEnviarButton(){
+		return enviarButton;
+	}
+    
+  // SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 12. OBRAS NUEVAS -TIENDA NUEVA OBRA GRUESA+HABILITACION P1 
+  // SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 13. Remodelaciones-Remodelacion con cambio de Superficie
 
-		public WebElement getFilePlanoMunicipalButton(){
-			return filePlanoMunicipalButton;
-		}
+	public WebElement getFileMecanicoSueloButton(){
+		return fileKmzButton;
+	}
 
-		public WebElement getFileInfoPreviasButton(){
-			return fileInfoPreviasButton;
-		}
-		
-		// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 15.PLANOS-PLANOS 
-		public WebElement getTipoPlanoTextArea(){
-			return tipoPlanoTextArea;
-		}
+	public WebElement getTipoPrototipoList() {
+    return tipoPrototipoList;
+  }
 
-		public WebElement getformatoTextArea(){
-			return formatoTextArea;
-		}		
-		// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 17.Instalaciones-Instalaciones Sanitarias Mesas de Jardin
-		public WebElement getFileSolicitudUbicacionButton() {
-			return fileSolicitudUbicacionButton;
-		}
-		
-		// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 18.Remodelaciones-Obras Civiles Mayores (>500m2)
-		// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 17.Instalaciones-Instalaciones Sanitarias Mesas de Jardin
-		public WebElement getFileFotoButton(){
-			return fileFotoButton;
-		}
+  public WebElement getFileKmzButton(){
+		return fileKmzButton;
+	}
 
-		public WebElement getNecesidadTextArea(){
-			return necesidadTextArea;
-		}
+	public WebElement getFileFotoTerrenoButton(){
+		return fileFotoTerrenoButton;
+	}
 
-		public WebElement getDescripcionDetalladaTextArea(){
-			return descripcionDetalladaTextArea;
-		}
-	  
-	  
+	public WebElement getFilePlanoTopograficoButton(){
+		return filePlanoTopograficoButton;
+	}
+
+	public WebElement getFilePlanoMunicipalButton(){
+		return filePlanoMunicipalButton;
+	}
+
+	public WebElement getFileInfoPreviasButton(){
+		return fileInfoPreviasButton;
+	}
+	
+	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 15.PLANOS-PLANOS 
+	public WebElement getTipoPlanoTextArea(){
+		return tipoPlanoTextArea;
+	}
+
+	public WebElement getformatoTextArea(){
+		return formatoTextArea;
+	}		
+	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 17.Instalaciones-Instalaciones Sanitarias Mesas de Jardin
+	public WebElement getFileSolicitudUbicacionButton() {
+		return fileSolicitudUbicacionButton;
+	}
+	
+	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 18.Remodelaciones-Obras Civiles Mayores (>500m2)
+	// SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 17.Instalaciones-Instalaciones Sanitarias Mesas de Jardin
+	public WebElement getFileFotoButton(){
+		return fileFotoButton;
+	}
+
+	public WebElement getNecesidadTextArea(){
+		return necesidadTextArea;
+	}
+
+	public WebElement getDescripcionDetalladaTextArea(){
+		return descripcionDetalladaTextArea;
+	}
+
+  public WebElement getFormSolicitudTitle() {
+    return formSolicitudTitle;
+  }
+
+  public WebElement getEmpresaField() {
+    return empresaField;
+  }
+
+  public WebElement getCentroCostoField() {
+    return centroCostoField;
+  }
+
+  public WebElement getFechaField() {
+    return fechaField;
+  }
+
+  public WebElement getComentariosField() {
+    return comentariosField;
+  }
+
+  public WebElement getFormatoTextArea() {
+    return formatoTextArea;
+  }
+
 }
