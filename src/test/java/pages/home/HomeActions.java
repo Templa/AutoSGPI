@@ -65,6 +65,7 @@ public class HomeActions {
 
     // Expando el submenu
     homePage.setAttribute(elementoEncontradoMenuPrincipal, "class", "treeview is-expanded");
+    Thread.sleep(500);
     // Obtengo la lista de sub elementos
     List<WebElement> subMenuList = elementoEncontradoMenuPrincipal.findElements(By.xpath("//ul/li/a[@class='treeview-item']"));
     WebElement elementoEncontradoMenuSecundario = null;

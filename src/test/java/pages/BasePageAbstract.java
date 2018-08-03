@@ -94,7 +94,7 @@ public abstract class BasePageAbstract {
       );
       return true;
     } catch (org.openqa.selenium.TimeoutException e) {
-      System.out.println("INFO: TimeoutException El elemento " + element.getText() + ", no es visible. return false");
+      System.out.println("INFO: waitVisibilityOfElement TimeoutException El elemento no es visible. return false");
       return false;
     } catch (Throwable e) {
       System.out.println("INFO: El elemento " + element.getText() + " error. return false " + e);

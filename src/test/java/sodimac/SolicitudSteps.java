@@ -51,19 +51,34 @@ public class SolicitudSteps {
 
   @And("^Adjuntar Archivo Mecanica de Suelo$")
   public void adjuntarArchivoMecanicaSuelo() throws Throwable {
-    // FALTA IMPLEMENTAR
+    solicitudesActions.ingresarFileMecanicaSuelo();
   }
 
   @And("^Adjuntar Archivo KMZ$")
   public void adjuntarArchivoKMZ() throws Throwable {
-    // FALTA IMPLEMENTAR
+    solicitudesActions.ingresarFileKmz();
   }
   
   @And("^Adjuntar Archivo Fotografia Terreno$")
   public void adjuntarArchivoFotografiaTerreno() throws Throwable {
-    // FALTA IMPLEMENTAR
+    solicitudesActions.ingresarFileFotoTerreno();
   }
   
+  @And("^Adjuntar Archivo Plano Topografico$")
+  public void adjuntarPlanoTopografico() throws Throwable {
+    solicitudesActions.ingresarFilePlanoTopografico();
+  }
+
+  @And("^Adjuntar Plano Municipal$")
+  public void adjuntarPlanoMunicipal() throws Throwable {
+    solicitudesActions.ingresarFilePlanoMunicipal();
+  }
+
+  @And("^Adjuntar Informes Previas$")
+  public void adjuntarInformesPrevias() throws Throwable {
+    solicitudesActions.ingresarFileInfoPrevias();
+  }
+
   @And("^Presionar Boton Enviar$")
   public void presionarBotonEnviar() throws Throwable {
     solicitudesActions.presionarEnviar();

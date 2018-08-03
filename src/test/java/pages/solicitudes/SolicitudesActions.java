@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.java.en.And;
 import pages.login.LoginPage;
 
 import static org.junit.Assert.*;
@@ -79,7 +80,7 @@ public class SolicitudesActions {
 	  //14- ecueto     - Ingresar Solicitud PLANOS-PLANOS  Sin ingresar Datos Obligatorios 
 	  //15- ecueto     - Ingresar Solicitud PLANOS-PLANOS
 	  public void ingresaTipoPlano(String plano) {
-	  	  solicitudesPage.getTipoPlanoTextArea().clear();
+	  	solicitudesPage.getTipoPlanoTextArea().clear();
 		  solicitudesPage.getTipoPlanoTextArea().sendKeys(plano);
 	  }
 	  
@@ -98,5 +99,53 @@ public class SolicitudesActions {
 		  solicitudesPage.getDescripcionDetalladaTextArea().clear();
 		  solicitudesPage.getDescripcionDetalladaTextArea().sendKeys(descripcion);
 	  }
+
+    public void ingresarFileMecanicaSuelo() throws Throwable {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\img\\Foto.jpg";
+      assertTrue("FAILED: visibility getFileMecanicoSueloButton",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFileMecanicoSueloButton(), 5));
+      solicitudesPage.getFileMecanicoSueloButton().sendKeys(filePath);
+      Thread.sleep(500);
+    }
+
+    public void ingresarFileKmz() throws Throwable {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\img\\Foto.jpg";
+      assertTrue("FAILED: visibility getFileKmzButton",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFileKmzButton(), 5));
+      solicitudesPage.getFileKmzButton().sendKeys(filePath);
+      Thread.sleep(500);
+    }
+
+    public void ingresarFileFotoTerreno() throws Throwable {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\img\\Foto.jpg";
+      assertTrue("FAILED: visibility getFileFotoTerrenoButton",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFileFotoTerrenoButton(), 5));
+      solicitudesPage.getFileFotoTerrenoButton().sendKeys(filePath);
+      Thread.sleep(500);
+    }
+
+    public void ingresarFilePlanoTopografico() throws Throwable {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\pdf\\Documento.pdf";
+      assertTrue("FAILED: visibility getFilePlanoTopograficoButton",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFilePlanoTopograficoButton(), 5));
+      solicitudesPage.getFilePlanoTopograficoButton().sendKeys(filePath);
+      Thread.sleep(500);
+    }
+
+    public void ingresarFilePlanoMunicipal() throws Throwable {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\pdf\\Documento.pdf";
+      assertTrue("FAILED: visibility getFilePlanoMunicipalButton",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFilePlanoMunicipalButton(), 5));
+      solicitudesPage.getFilePlanoMunicipalButton().sendKeys(filePath);
+      Thread.sleep(500);
+    }
+
+    public void ingresarFileInfoPrevias() throws Throwable {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\pdf\\Documento.pdf";
+      assertTrue("FAILED: visibility getFileInfoPreviasButton",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFileInfoPreviasButton(), 5));
+      solicitudesPage.getFileInfoPreviasButton().sendKeys(filePath);
+      Thread.sleep(500);
+    }
 
 }
