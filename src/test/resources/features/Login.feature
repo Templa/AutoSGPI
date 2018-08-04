@@ -47,13 +47,12 @@ Feature: Login
     When Ingresar Usuario "<Usuario>"
     And Ingresar Password "<Contrasena>"
     And Presionar Ingresar
-    Then El ingreso al sistema es exitoso
-    And El usuario ve el dashboard del portal
+    Then El sistema muestra el mensaje "<Mensaje>"
 
     Examples: loginSoloUsuario
       | Usuario | Contrasena | Mensaje                                 |
-      | iroman  | ;          | Por favor ingresa los datos solicitados |
-      | ecueto  | ;          | Por favor ingresa los datos solicitados |
+      | iroman  | ;          | Usuario o contraseña no valido          |
+      | ecueto  | ;          | Usuario o contraseña no valido          |
       | mdelrio |            | Por favor ingresa los datos solicitados |
 
   @loginSoloPass
@@ -62,7 +61,8 @@ Feature: Login
     When Ingresar Usuario "<Usuario>"
     And Ingresar Password "<Contrasena>"
     And Presionar Ingresar
-
+    Then El sistema muestra el mensaje "<Mensaje>"
+    
     Examples: loginSoloPass
       | Usuario | Contrasena   | Mensaje                                 |
       |         | sodimac1234; | Por favor ingresa los datos solicitados |
@@ -75,6 +75,7 @@ Feature: Login
     When Ingresar Usuario "<Usuario>"
     And Ingresar Password "<Contrasena>"
     And Presionar Ingresar
+    Then El sistema muestra el mensaje "<Mensaje>"
 
     Examples: loginCuentaInactiva
       | Usuario | Contrasena | Mensaje          |

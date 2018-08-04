@@ -1,15 +1,11 @@
 package sodimac;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import pages.home.HomeActions;
-
+import pages.solicitudes.SolicitudesActions;
 import utils.DriverManagerAbstract;
 
 public class HomeSteps {
@@ -17,22 +13,25 @@ public class HomeSteps {
   WebDriver driver;
   DriverManagerAbstract driverManager;
   HomeActions homeActions;
+  SolicitudesActions solicitudesActions;
+
   // DI
   public HomeSteps(Hooks hook) {
     this.driver = Hooks.getDriver();
     this.driverManager = hook.getDriverManager();
     homeActions = new HomeActions(driver);
+    solicitudesActions = new SolicitudesActions(driver);
   }
 
   /*
    * Test Aqui
    */
-  
+
   @And("^El usuario ve la pagina de Dashboard$")
   public void usuarioVePaginaDashboard() throws Throwable {
     homeActions.isDashboard();
   }
-  
+
   @Then("^El usuario ve su rol \"(.*?)\"$")
   public void usuarioVeRolEnMenu(String rol) throws Throwable {
     homeActions.validarRol(rol);
@@ -52,8 +51,13 @@ public class HomeSteps {
   public void validarSubMenu(String menuOption, String subMenu) throws Throwable {
     homeActions.validarOpcionEnMenuSecundario(menuOption, subMenu);
   }
-  
-  
+
+  @And("^Ir a Menu \"(.*?)\" y submenu \"(.*?)\"$")
+  public void clickSubMenu(String menuOption, String subMenu) throws Throwable {
+    homeActions.clickOpcionEnMenuSecundario(menuOption, subMenu);
+    solicitudesActions.validarTituloSolicitudes();
+  }
+
 /*
  *   @Then("^El sistema muestra el mensaje \"(.*?)\"$")
   public void validarMensajeLogin(String mensaje) throws Throwable {

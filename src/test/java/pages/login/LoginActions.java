@@ -1,18 +1,20 @@
 package pages.login;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-import static org.junit.Assert.*;
 
 public class LoginActions {
   WebDriver driver;
   private LoginPage loginPage;
-  
+
   public LoginActions(WebDriver driver) {
     this.driver = driver;
     loginPage = new LoginPage(driver);
   }
-  
+
   public void cargarPagina() {
     driver.navigate().to(loginPage.getUrlSite());
     assertEquals("FAILED: cargarPagina", loginPage.getTitle(), driver.getTitle());
@@ -27,13 +29,14 @@ public class LoginActions {
     loginPage.getPassField().clear();
     loginPage.getPassField().sendKeys(password);
   }
-  
+
   public void presionarIngresar() {
     loginPage.getLoginButton().click();
   }
-  
+
   public void validarMensajeLogin(String mensaje) throws Throwable {
-    if(loginPage.waitVisibilityOfElement(loginPage.getAlertWarnDiv(), 5)) {
+    final int tiempoSeg = 5;
+    if (loginPage.waitVisibilityOfElement(loginPage.getAlertWarnDiv(), tiempoSeg)) {
       assertTrue("FAILED: loginPage.getAlertWarnDiv().getText().contains(mensaje)",
           loginPage.getAlertWarnDiv().getText().contains(mensaje));
     } else {

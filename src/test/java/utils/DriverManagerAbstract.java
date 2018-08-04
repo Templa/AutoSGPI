@@ -10,7 +10,7 @@ public abstract class DriverManagerAbstract {
   protected abstract void createDriver() throws Exception;
 
   protected static WebDriver driver;
-  protected int secondsToWait = 1000; // wait for AJAX
+  protected final int secondsToWait = 1000; // wait for AJAX
 
   /**
    * Quit Driver
@@ -27,7 +27,7 @@ public abstract class DriverManagerAbstract {
    * Get Local Driver
    */
   public WebDriver getDriver() throws Exception {
-	if (null != driver) {
+    if (null != driver) {
       return driver;
     } else {
       startService();

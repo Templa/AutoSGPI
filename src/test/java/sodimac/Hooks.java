@@ -64,9 +64,9 @@ public class Hooks {
         // Refresh page: if test fail and currentUrl is equals to page init
         String urlSite = PropertyReader.getSiteUrl();
         if (driver.getCurrentUrl().equalsIgnoreCase(urlSite)) {
-          //TODO: Revisar el tema de cache
           driver.manage().deleteAllCookies();
-          Thread.sleep(3000);
+          final int tiempoMili = 3000;
+          Thread.sleep(tiempoMili);
           driver.navigate().refresh();
         }
       }

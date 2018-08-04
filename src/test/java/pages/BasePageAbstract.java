@@ -38,7 +38,7 @@ public abstract class BasePageAbstract {
   }
 
   /**
-   * TODO: Metodos de prueba para manejar tiempos de espera
+   * Metodos de prueba para manejar tiempos de espera
    * @ExpectedCondition
    * @Integer
    */
@@ -94,7 +94,7 @@ public abstract class BasePageAbstract {
       );
       return true;
     } catch (org.openqa.selenium.TimeoutException e) {
-      System.out.println("INFO: TimeoutException El elemento " + element.getText() + ", no es visible. return false");
+      System.out.println("INFO: waitVisibilityOfElement TimeoutException El elemento no es visible. return false");
       return false;
     } catch (Throwable e) {
       System.out.println("INFO: El elemento " + element.getText() + " error. return false " + e);
@@ -124,10 +124,12 @@ public abstract class BasePageAbstract {
 
   public WebElement moveTo(WebElement element) throws Throwable {
     //El valor 100 en el eje Y es para que el elemento no quede "tapado" por otro elemento
-    int elementPosition = element.getLocation().getY() - 100;
+    final int moveBy = 100;
+    int elementPosition = element.getLocation().getY() - moveBy;
     try {
       ((JavascriptExecutor) driver).executeScript("window.scroll(0, arguments[0])", elementPosition);
-      Thread.sleep(500);
+      final int tiempo = 500;
+      Thread.sleep(tiempo);
     } catch (Throwable e) {
       System.out.println("FAILED metodo moveTo(WebElement element): " + e.getMessage());
     }
@@ -142,9 +144,10 @@ public abstract class BasePageAbstract {
   public void mouseOver(WebElement element) throws Throwable {
     Actions action = new Actions(driver);
     action.moveToElement(element).build().perform();
-    driver.wait(500);
+    final int tiempo = 500;
+    driver.wait(tiempo);
   }
-  
+
   /**
    * findOneElementInList, It needs 2 params, one list and the object that you want to find in the list
    * @param listElements
@@ -154,19 +157,21 @@ public abstract class BasePageAbstract {
   public WebElement findOneElementInList(List<WebElement> listElements, String element) {
     try {
       if (listElements.size() > 0) {
-        for(WebElement findElement : listElements) {
-          if(findElement.getText().contains(element)) {
+        for (WebElement findElement : listElements) {
+          if (findElement.getText().contains(element)) {
             return findElement;
           }
         }
       return null;
-    } else 
+    } else {
       return null;
+    }
+
     } catch (Throwable e) {
       return null;
     }
   }
-  
+
   /**
    * setAttribute, It sets any of the attribute value of a WebElement
    * @param element WebElement
