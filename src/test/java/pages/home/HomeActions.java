@@ -3,35 +3,36 @@ package pages.home;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 public class HomeActions {
   WebDriver driver;
   private HomePage homePage;
-  
+
   public HomeActions(WebDriver driver) {
     this.driver = driver;
     homePage = new HomePage(driver);
   }
-    
-  
+
   public void isDashboard() throws Throwable {
     String sitioActual = driver.getCurrentUrl();
     assertTrue("FAILED: isDashboard",
         sitioActual.contains(homePage.getDashboardSite()));
   }
-  
+
   public void validarRol(String rol) throws Throwable {
     String userDesignation =  homePage.getUserDesignationText().getText();
     assertTrue("FAILED: validarRol", userDesignation.contains(rol));
   }
-  
+
   public void presionarBotonHamburguesaDashboard() throws Throwable {
     homePage.getHamburguesaButton().click();
   }
-  
+
   public void validarOpcionEnMenuPrincipal(String menuOption) throws Throwable {
     WebElement elementoEncontradoMenuPrincipal = null;
     elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
@@ -65,7 +66,8 @@ public class HomeActions {
 
     // Expando el submenu
     homePage.setAttribute(elementoEncontradoMenuPrincipal, "class", "treeview is-expanded");
-    Thread.sleep(500);
+    final int tiempo = 500;
+    Thread.sleep(tiempo);
     // Obtengo la lista de sub elementos
     List<WebElement> subMenuList = elementoEncontradoMenuPrincipal.findElements(By.xpath("//ul/li/a[@class='treeview-item']"));
     WebElement elementoEncontradoMenuSecundario = null;
@@ -73,6 +75,7 @@ public class HomeActions {
     elementoEncontradoMenuSecundario = homePage.findOneElementInList(subMenuList, subMenu);
 
     elementoEncontradoMenuSecundario.click();
-    Thread.sleep(2000);
+    final int tiempo2 = 500;
+    Thread.sleep(tiempo2);
   }
 }

@@ -2,10 +2,8 @@ package sodimac;
 
 import org.openqa.selenium.WebDriver;
 
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import pages.login.LoginActions;
 import pages.solicitudes.SolicitudesActions;
 import utils.DriverManagerAbstract;
 
@@ -33,12 +31,12 @@ public class SolicitudSteps {
   public void seleccionarActividad(String actividad) throws Throwable {
     solicitudesActions.seleccionarActiviad(actividad);
   }
-  
+
   @And("^Seleccionar una Tienda en combobox \"(.*?)\"$")
   public void seleccionarTienda(String tienda) throws Throwable {
     solicitudesActions.seleccionarTienda(tienda);
   }
-  
+
   @And("^Ingresar Descripcion de la Solicitud \"(.*?)\"$")
   public void ingresarDescripcionSolicitud(String comentarios) throws Throwable {
     solicitudesActions.ingresaDescripcion(comentarios);
@@ -58,12 +56,12 @@ public class SolicitudSteps {
   public void adjuntarArchivoKMZ() throws Throwable {
     solicitudesActions.ingresarFileKmz();
   }
-  
+
   @And("^Adjuntar Archivo Fotografia Terreno$")
   public void adjuntarArchivoFotografiaTerreno() throws Throwable {
     solicitudesActions.ingresarFileFotoTerreno();
   }
-  
+
   @And("^Adjuntar Archivo Plano Topografico$")
   public void adjuntarPlanoTopografico() throws Throwable {
     solicitudesActions.ingresarFilePlanoTopografico();

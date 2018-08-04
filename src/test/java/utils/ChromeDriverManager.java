@@ -12,15 +12,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class ChromeDriverManager extends DriverManagerAbstract {
 
-  protected int secondsToWait = 1000; // wait for AJAX
+  protected final int secondsToWait = 1000; // wait for AJAX
   private ChromeDriverService chromeService;
 
   @Override
   public void startService() {
     if (null == chromeService) {
       try {
-    	// PATH donde se encuentra chromedriver
-    	String pathFile = System.getProperty("user.dir") + "\\src\\test\\resources\\driver\\chromedriver.exe";
+        // PATH donde se encuentra chromedriver
+        String pathFile = System.getProperty("user.dir") + "\\src\\test\\resources\\driver\\chromedriver.exe";
         chromeService = new ChromeDriverService.Builder()
           .usingDriverExecutable(new File(pathFile))
           .usingAnyFreePort()
@@ -55,7 +55,8 @@ public class ChromeDriverManager extends DriverManagerAbstract {
     try {
       String remoteWebDriver = PropertyReader.getSeleniumUrl();
       driver = new RemoteWebDriver(new URL(remoteWebDriver), capabilities);
-      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      final int tiempoSeg = 10;
+      driver.manage().timeouts().implicitlyWait(tiempoSeg, TimeUnit.SECONDS);
     } catch (Throwable e) {
       System.out.println("Fail remoteWebDriver" + e.getMessage());
     }

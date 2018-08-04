@@ -16,19 +16,19 @@ public class LoginPage extends BasePageAbstract {
    */
 
   private URL urlSite;
-  
+
   private final String title = "Sistema de Gestión de Proyecto e Infraestructura";
 
   @FindBy(id = "user")
   private WebElement usuarioField;
-  
+
   @FindBy(id = "pass")
   private WebElement passField;
-  
+
   @FindBy(id = "login")
   private WebElement loginButton;
-  
-  @FindBy(xpath ="//div[@id = 'alert-warn']")
+
+  @FindBy(xpath = "//div[@id = 'alert-warn']")
   private WebElement alertWarnDiv;
 
   // Constructor
@@ -38,16 +38,16 @@ public class LoginPage extends BasePageAbstract {
 
   // Getters
   public URL getUrlSite() {
-	  try {
-		  urlSite  = new URL(PropertyReader.getSiteUrl());
-	  } catch (Exception e) {
-		e.printStackTrace();
-	}
+    try {
+      urlSite  = new URL(PropertyReader.getSiteUrl());
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     return urlSite;
   }
-	
+
   public String getTitle() {
-	return title;
+    return title;
   }
 
   public WebElement getUsuarioField() {
@@ -55,7 +55,7 @@ public class LoginPage extends BasePageAbstract {
   }
 
   public WebElement getPassField() {
-	  return passField;
+    return passField;
   }
 
   public WebElement getLoginButton() {
