@@ -20,7 +20,7 @@ public class SolicitudesPage extends BasePageAbstract {
   @FindBy(id = "EmpresaName")
   private WebElement empresaList;
 
-  @FindBy(id = "EmpresaName")
+  @FindBy(css = "label[for='EmpresaName']")
   private WebElement empresaField;
 
   @FindBy(id = "tienda")
@@ -43,6 +43,11 @@ public class SolicitudesPage extends BasePageAbstract {
 
   // SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 12. OBRAS NUEVAS -TIENDA NUEVA OBRA GRUESA+HABILITACION P1
   // SELECCION ARCHIVOS TIPO DE SOLICITUD ==> 13. Remodelaciones-Remodelacion con cambio de Superficie
+
+  // FORMULARIO DE ACTIVIDADES
+  @FindBy(id = "formPlus1")
+  private WebElement formActividades;
+
   @FindBy(css = "div#formPlus1 select[name='Tippro']")
   private WebElement tipoPrototipoList;
 
@@ -86,8 +91,12 @@ public class SolicitudesPage extends BasePageAbstract {
   @FindBy(id = "jsonform-0-elt-descripcion1")
   private WebElement descripcionDetalladaTextArea;
 
+  // SolicitudesModalPage
+  SolicitudesModalPage solicitudesModalPage;
+
   public SolicitudesPage(WebDriver driver) {
     super(driver);
+    solicitudesModalPage = new SolicitudesModalPage(driver);
   }
 
   //Getters
@@ -129,6 +138,10 @@ public class SolicitudesPage extends BasePageAbstract {
 
   public WebElement getFileMecanicoSueloButton() {
     return fileMecanicoSueloButton;
+  }
+
+  public WebElement getFormActividades() {
+    return formActividades;
   }
 
   public WebElement getTipoPrototipoList() {
@@ -204,6 +217,10 @@ public class SolicitudesPage extends BasePageAbstract {
 
   public WebElement getFormatoTextArea() {
     return formatoTextArea;
+  }
+
+  public SolicitudesModalPage getSolicitudesModalPage() {
+    return solicitudesModalPage;
   }
 
 }

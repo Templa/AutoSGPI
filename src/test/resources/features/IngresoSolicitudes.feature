@@ -40,7 +40,10 @@ Feature: Home
  	And Ir a Menu "Solicitudes" y submenu "Ingreso de Solicitudes"
 	Then Seleccionar en combobox Tipo Solicitud: "PROYECTOS"
 	And Seleccionar en combobox Actividad: "Obras Nuevas-Tienda Nueva Obra Gruesa+ Habilitación  P2"
+	And Validar formulario de Actividades
+	And Validar que el campo empresa por defecto tenga el valor "Sodimac"
 	And Seleccionar una Tienda en combobox "21 - CO CANTAGALLO"
+	And Validar campo Centro de Costo
 	And Ingresar Descripcion de la Solicitud "Descripcion de la solicitud"
 	And Ingresar Tipo Prototipo "1"
 	And Adjuntar Archivo Mecanica de Suelo 
@@ -50,6 +53,8 @@ Feature: Home
 	And Adjuntar Plano Municipal
 	And Adjuntar Informes Previas
 	And Presionar Boton Enviar
+	And Validar mensaje en popup "Archivo Adjuntado con Exito Solicitud"
+	And Presionar boton ok en popup
 
     Examples: ingresarSolicitudObrasNuevas
       | Usuario   | Contrasena | Rol      | 

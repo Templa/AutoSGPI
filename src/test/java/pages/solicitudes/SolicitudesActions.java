@@ -1,10 +1,16 @@
 package pages.solicitudes;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.regex.Pattern;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import utils.PropertyReader;
 
 
 public class SolicitudesActions {
@@ -32,11 +38,6 @@ public class SolicitudesActions {
   public void seleccionarActiviad(String actividad) {
     Select actividades = new Select(solicitudesPage.getActividadesList());
     actividades.selectByVisibleText(actividad);
-  }
-
-  public void seleccionarEmpresa(String empresa) {
-    Select empresas = new Select(solicitudesPage.getEmpresaList());
-    empresas.selectByVisibleText(empresa);
   }
 
   public void validarCargaSodimacPorDefecto() {
@@ -158,4 +159,57 @@ public class SolicitudesActions {
       Thread.sleep(tiempoMili);
     }
 
+    // VALIDACIONES
+    public void validarFormularioActividades() throws Throwable {
+      final int tiempoSeg = 5;
+      assertTrue("FAILED: visibility validarFormularioActividades",
+          solicitudesPage.waitVisibilityOfElement(solicitudesPage.getFormActividades(), tiempoSeg));
+    }
+
+    public void validarCampoEmpresa(String empresaName) throws Throwable {
+       String valueEmpresaName =  (String) ((JavascriptExecutor) driver)
+           .executeScript("return document.getElementById('EmpresaName').value");
+       assertEquals("FAILED: validarCampoEmpresa", valueEmpresaName, empresaName);
+    }
+
+    public void validarCentroCosto() {
+      String valueCentroCosto = (String) ((JavascriptExecutor) driver)
+          .executeScript("return document.getElementById('CC').value");
+      assertNotNull("FAILED: validarCentroCosto es NULL", valueCentroCosto);
+    }
+
+    public void validarMensajePopUp(String mensaje) throws Throwable {
+      final int tiempoSeg = 5;
+      assertTrue("FAILED: visibility validarMensajePopUp",
+          solicitudesPage.waitVisibilityOfElement(
+              solicitudesPage.getSolicitudesModalPage().getSweetAlertIdSolicitud(),
+              tiempoSeg));
+      String valorActual = solicitudesPage.getSolicitudesModalPage().getSweetAlertIdSolicitud().getText();
+      assertTrue("FAILED: validarMensajePopUp validacion de mensaje",
+          valorActual.contains(mensaje));
+
+      // Guardo el id de la solicitud
+      guardarIdSolicitud(valorActual);
+    }
+
+    /**
+     * guardarIdSolicitud, desde un string retorno solo los valores numericos y luego los guardo
+     * @param mensaje
+     */
+    private void guardarIdSolicitud(String mensaje) {
+      String input  = String.valueOf(mensaje);
+      Pattern p = Pattern.compile("[^0-9]");
+      String numericOutput = p.matcher(input).replaceAll("");
+      // Seteo la variable que compartire con el id de solicitud
+      PropertyReader.setPropertyIdSolicitud(numericOutput);
+    }
+
+    public void presionarBotonOkPopUp() throws Throwable {
+      final int tiempoSeg = 5;
+      assertTrue("FAILED: visibility presionarBotonOkPopUp",
+          solicitudesPage.waitVisibilityOfElement(
+              solicitudesPage.getSolicitudesModalPage().getSweetAlertConfirmButtom(),
+              tiempoSeg));
+      solicitudesPage.getSolicitudesModalPage().getSweetAlertConfirmButtom().click();
+    }
 }
