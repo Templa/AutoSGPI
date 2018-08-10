@@ -31,6 +31,7 @@ public abstract class PropertyReader {
       System.setProperty("SELENIUM_HOST", properties.getProperty("SELENIUM_HOST"));
       System.setProperty("URL_SITE", properties.getProperty("URL_SITE"));
       System.setProperty("reportConfigPath", properties.getProperty("reportConfigPath"));
+      System.setProperty("ID_SOLICITUD", properties.getProperty("ID_SOLICITUD"));
     } catch (Throwable e) {
       System.out.println("FAILED: initProperties " + e.getMessage());
     }
@@ -105,4 +106,12 @@ public abstract class PropertyReader {
     }
   }
 
+  // ID SOLICITUDES
+  public static void setPropertyIdSolicitud(String value) {
+    System.setProperty("ID_SOLICITUD", value);
+  }
+
+  public static String getPropertyIdSolicitud() {
+    return System.getProperty("ID_SOLICITUD");
+  }
 }

@@ -82,4 +82,30 @@ public class SolicitudSteps {
     solicitudesActions.presionarEnviar();
   }
 
+  // VALIDACIONES
+  @And("^Validar formulario de Actividades$")
+  public void validarFormualioIngresoSolicitud() throws Throwable {
+    solicitudesActions.validarFormularioActividades();
+  }
+
+  @And("^Validar que el campo empresa por defecto tenga el valor \"(.*?)\"$")
+  public void validarCampoEmpresa(String empresaName) throws Throwable {
+    solicitudesActions.validarCampoEmpresa(empresaName);
+  }
+
+  @And("^Validar campo Centro de Costo$")
+  public void validarCentroCosto() throws Throwable {
+    solicitudesActions.validarCentroCosto();
+  }
+
+  @And("^Validar mensaje en popup \"(.*?)\"$")
+  public void validarMensajePopUp(String mensaje) throws Throwable {
+    solicitudesActions.validarMensajePopUp(mensaje);
+  }
+
+  @And("^Presionar boton ok en popup$")
+  public void presionarBotonOkPopUp() throws Throwable {
+    solicitudesActions.presionarBotonOkPopUp();
+  }
+
 }

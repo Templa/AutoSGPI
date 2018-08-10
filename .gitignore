@@ -6,3 +6,4 @@ reports/*
 .project
 .classpath
 .settings
+.checkstyle
