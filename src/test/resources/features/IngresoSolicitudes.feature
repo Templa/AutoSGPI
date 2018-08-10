@@ -53,7 +53,7 @@ Feature: Home
 	And Adjuntar Plano Municipal
 	And Adjuntar Informes Previas
 	And Presionar Boton Enviar
-	And Validar mensaje en popup "Archivo Adjuntado con Exito Solicitud"
+	And Validar mensaje en popup "El Numero de la solicitud es"
 	And Presionar boton ok en popup
 
     Examples: ingresarSolicitudObrasNuevas
@@ -135,7 +135,7 @@ Feature: Home
 	And Adjuntar Plano Municipal
 	And Adjuntar Informes Previas
 	And Presionar Boton Enviar
-	And Validar mensaje en popup "Archivo Adjuntado con Exito Solicitud"
+	And Validar mensaje en popup "El Numero de la solicitud es"
 	And Presionar boton ok en popup
 
     Examples: ingresarSolicitudObrasNuevas
@@ -173,7 +173,7 @@ Feature: Home
 
       
   @ingresarSolicitudRemodelacionesObrasCiviles
-  Scenario Outline: Ingresar Solicitud Remodelaciones-Obras Civiles Mayores (>500m2)
+  Scenario Outline: Ingresar Solicitud Remodelaciones-Obras Civiles Mayores 500m2
     Given Ingresar en el Portal SGPI
     When Ingresar Usuario "<Usuario>"
     And Ingresar Password "<Contrasena>"
