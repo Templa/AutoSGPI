@@ -162,10 +162,10 @@ public abstract class BasePageAbstract {
             return findElement;
           }
         }
-      return null;
-    } else {
-      return null;
-    }
+        return null;
+      } else {
+        return null;
+      }
 
     } catch (Throwable e) {
       return null;
