@@ -60,7 +60,7 @@ public class HomeSteps {
   @And("^Ir a Menu \"(.*?)\" y submenu \"(.*?)\"$")
   public void clickSubMenu(String menuOption, String subMenu) throws Throwable {
     homeActions.clickOpcionEnMenuSecundario(menuOption, subMenu);
-    solicitudesActions.validarTituloSolicitudes();
+    // solicitudesActions.validarTituloSolicitudes();
   }
 
 /*
