@@ -14,10 +14,10 @@
     <protocol>https</protocol>
 
     <!-- title of the document -->
-    <documentTitle>Yacumbia</documentTitle>
+    <documentTitle>Sodimac SGPI</documentTitle>
 
     <!-- report name - displayed at top-nav -->
-    <reportName>Cucumber Report</reportName>
+    <reportName>Sodimac SGPIt</reportName>
 
     <!-- report headline - displayed at top-nav, after reportHeadline -->
     <reportHeadline></reportHeadline>
