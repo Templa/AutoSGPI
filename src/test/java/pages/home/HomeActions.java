@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -37,6 +38,12 @@ public class HomeActions {
     WebElement elementoEncontradoMenuPrincipal = null;
     elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
     assertNotNull("FAILED: elementoEncontradoMenuPrincipal es NULL", elementoEncontradoMenuPrincipal);
+  }
+
+  public void validarOpcionEnMenuPrincipalNoExista(String menuOption) throws Throwable {
+    WebElement elementoEncontradoMenuPrincipal = null;
+    elementoEncontradoMenuPrincipal = homePage.findOneElementInList(homePage.getAsideMenuList(), menuOption);
+    assertNull("FAILED: validarOpcionEnMenuPrincipalNoExista NO ES NULL", elementoEncontradoMenuPrincipal);
   }
 
   public void validarOpcionEnMenuSecundario(String menuOption, String subMenu) throws Throwable {

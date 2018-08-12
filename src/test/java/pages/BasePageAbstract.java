@@ -162,10 +162,34 @@ public abstract class BasePageAbstract {
             return findElement;
           }
         }
-      return null;
-    } else {
+        return null;
+      } else {
+        return null;
+      }
+
+    } catch (Throwable e) {
       return null;
     }
+  }
+
+  /**
+   * findOneElementInList, It needs 2 params, one list and the object that you want to find in the list
+   * @param listElements
+   * @param element
+   * @return WebElement
+   */
+  public WebElement findOneElementInListWithTextContent(List<WebElement> listElements, String element) {
+    try {
+      if (listElements.size() > 0) {
+        for (WebElement findElement : listElements) {
+          if (findElement.getAttribute("textContent") .contains(element)) {
+            return findElement;
+          }
+        }
+        return null;
+      } else {
+        return null;
+      }
 
     } catch (Throwable e) {
       return null;

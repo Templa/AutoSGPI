@@ -23,7 +23,7 @@ import utils.Utils;
     "html:target/Destination",
     "json:target/Destination/cucumber-report.json",
     "com.cucumber.listener.ExtentCucumberFormatter:"},
-    tags = {"@ingresarSolicitudEmergencia"})
+    tags = {"@editarSolicitudesDesdeDetalleTercerNivel"})
 
  /*
   * GENERA REPORTES EN HTML Y JSON EN LA RUTA /target/Destination
@@ -51,12 +51,6 @@ public class RunTest {
   public static void teardown() throws Throwable {
     Reporter.loadXMLConfig(new File(PropertyReader.getReportConfigPath()));
     Reporter.setSystemInfo("Url", PropertyReader.getSiteUrl());
-    //Reporter.assignAuthor("Jose Luis Fuenzalida", "Denisse Falcon");
-    //Reporter.setSystemInfo("User Name", "Jose Luis Fuenzalida");
-    //Reporter.setSystemInfo("New Email", PropertyReader.getPropertyByName("USER_EMAIL"));
-    //Reporter.setSystemInfo("Selenium", "3.5.2");
-    //Reporter.setSystemInfo("Maven", "3.5.2");
-    //Reporter.setSystemInfo("Java Version", "1.8.0_151");
     String reportPath = ExtentProperties.INSTANCE.getReportPath().replaceAll("reports/", "");
     Reporter.setSystemInfo("Report", reportPath);
     System.out.println("************************************************************************");

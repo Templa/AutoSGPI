@@ -47,6 +47,11 @@ public class HomeSteps {
     homeActions.validarOpcionEnMenuPrincipal(menuOption);
   }
 
+  @And("^El usuario no ve la opcion \"(.*?)\" en el Menu del lado izquierdo de la pantalla$")
+  public void usuarioNoVeOpcionEnMenuPrimario(String menuOption) throws Throwable {
+    homeActions.validarOpcionEnMenuPrincipalNoExista(menuOption);
+  }
+
   @And("^En \"(.*?)\" se ve el submenu \"(.*?)\"$")
   public void validarSubMenu(String menuOption, String subMenu) throws Throwable {
     homeActions.validarOpcionEnMenuSecundario(menuOption, subMenu);
@@ -55,7 +60,7 @@ public class HomeSteps {
   @And("^Ir a Menu \"(.*?)\" y submenu \"(.*?)\"$")
   public void clickSubMenu(String menuOption, String subMenu) throws Throwable {
     homeActions.clickOpcionEnMenuSecundario(menuOption, subMenu);
-    solicitudesActions.validarTituloSolicitudes();
+    // solicitudesActions.validarTituloSolicitudes();
   }
 
 /*
