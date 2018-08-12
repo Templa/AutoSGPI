@@ -134,7 +134,8 @@ Feature: Mesas de trabajo detalle
     And Validar titulo "Solicitudes Asociadas a la Mesa" en la seccion central derecha para las solicitudes asociadas a la mesa
     When Presionar sobre la primera solicitud disponible asociada a la mesa
 	Then Se despliega la pagina Detalle Proyecto
-	
+
+   # test 32 - 36 de mesas, falta implementar validacion pagina detalle proyecto
    Examples: ingresarMenuMesasDetalleSegundoNivel
       | Usuario    | Contrasena | Rol                                               | Area                     | SubArea      |
       | iroman     | sodimac123 | Gerencia de Planificacion, Desarrollo y Proyectos | Subgerencia Arquitectura | Construccion |
