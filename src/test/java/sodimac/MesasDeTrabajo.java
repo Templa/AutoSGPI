@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.en.And;
+import pages.detalleproyecto.DetalleProyectoActions;
 import pages.mesatrabajo.MesaTrabajoActions;
 import pages.mesatrabajo.MesaTrabajoDetalleActions;
 import utils.DriverManagerAbstract;
@@ -15,6 +16,7 @@ public class MesasDeTrabajo {
   DriverManagerAbstract driverManager;
   MesaTrabajoActions mesaTrabajoActions;
   MesaTrabajoDetalleActions mesaTrabajoDetalleActions;
+  DetalleProyectoActions detalleProyectoActions;
 
   // DI
   public MesasDeTrabajo(Hooks hook) {
@@ -22,6 +24,7 @@ public class MesasDeTrabajo {
     this.driverManager = hook.getDriverManager();
     mesaTrabajoActions = new MesaTrabajoActions(driver);
     mesaTrabajoDetalleActions = new MesaTrabajoDetalleActions(driver);
+    detalleProyectoActions = new DetalleProyectoActions(driver);
   }
 
   /*
@@ -153,5 +156,15 @@ public class MesasDeTrabajo {
     mesaTrabajoDetalleActions.validarContenidoSeccionCentralSolicitudes();
   }
 
+  @And("^Presionar sobre la primera solicitud disponible asociada a la mesa$")
+  public void presionarPrimeraSolicitudDisponibleMesa() throws Throwable {
+    mesaTrabajoDetalleActions.presionarPrimeraSolicitudDisponibleMesa();
+  }
+
+  // DETALLE PROYECTO
+  @And("^Se despliega la pagina Detalle Proyecto$")
+  public void validarPaginaDetalleProyecto() throws Throwable {
+    detalleProyectoActions.validarPaginaDetalleProyecto();
+  }
 
 }

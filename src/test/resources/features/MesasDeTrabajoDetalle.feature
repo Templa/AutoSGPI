@@ -37,7 +37,7 @@ Feature: Mesas de trabajo detalle
 
   # TEST Mesas de Trabajo detalle Segundo Nivel
   @ingresarMenuMesasDetalleSegundoNivel
-  Scenario Outline: Mesas de Trabajo detalle Primer Nivel
+  Scenario Outline: Mesas de Trabajo detalle Segundo Nivel
     Given Ingresar en el Portal SGPI
     When Ingresar Usuario "<Usuario>"
     And Ingresar Password "<Contrasena>"
@@ -78,14 +78,14 @@ Feature: Mesas de trabajo detalle
     And Se visualiza el numero de Solicitudes para el area "<Area>" sub area "<SubArea>"
     And Validar el texto "Ver Detalle" en negro para nombre de mesa en el area "<Area>" sub area "<SubArea>"
     
-   Examples: ingresarMenuMesasDetalleSegundoNivel
+   Examples: ingresarMenuMesasDetalleSegundoNivelNombreMesa
       | Usuario    | Contrasena | Rol                                               | Area                     | SubArea      |
       | iroman     | sodimac123 | Gerencia de Planificacion, Desarrollo y Proyectos | Subgerencia Arquitectura | Construccion |
       | mdelrio    | sodimac123 | Subgerencia Arquitectura                          | Subgerencia Arquitectura | Construccion |
       | cinostroza | sodimac123 | Subgerencia Obras Nuevas                          | Subgerencia Arquitectura | Construccion |
 
   @ingresarMenuMesasDetalleTercerNivel
-  Scenario Outline: Posicionarse en cada nombre de las Mesas de Trabajo que poseen los Tipos de Mesa
+  Scenario Outline: Hacer click en los Nombres de cada una de las mesas de Trabajos que componen una subgerencia en  el sistema 
     Given Ingresar en el Portal SGPI
     When Ingresar Usuario "<Usuario>"
     And Ingresar Password "<Contrasena>"
@@ -109,9 +109,33 @@ Feature: Mesas de trabajo detalle
 	And Validar titulo "Solicitudes Asociadas a la Mesa" en la seccion central derecha para las solicitudes asociadas a la mesa
     And Validar contenido seccion central derecha para las solicitudes asociadas a la mesa, columnas Solicitud , la Sucursal, Solicitante y Estado
 
-   Examples: ingresarMenuMesasDetalleSegundoNivel
+   Examples: ingresarMenuMesasDetalleTercerNivel
       | Usuario    | Contrasena | Rol                                               | Area                     | SubArea      |
       | iroman     | sodimac123 | Gerencia de Planificacion, Desarrollo y Proyectos | Subgerencia Arquitectura | Construccion |
       | mdelrio    | sodimac123 | Subgerencia Arquitectura                          | Subgerencia Arquitectura | Construccion |
       | cinostroza | sodimac123 | Subgerencia Obras Nuevas                          | Subgerencia Arquitectura | Construccion |
+
+  @editarSolicitudesDesdeDetalleTercerNivel
+  Scenario Outline: Editar solicitudes desde el Detalle del Tercer Nivel
+    Given Ingresar en el Portal SGPI
+    When Ingresar Usuario "<Usuario>"
+    And Ingresar Password "<Contrasena>"
+    And Presionar Ingresar
+    And El usuario ve la pagina de Dashboard
+    Then Presionar icono Hamburguesa
+    And El usuario ve su rol "<Rol>"
+    And El usuario ve la opcion "Mesas de Trabajo" en el Menu del lado izquierdo de la pantalla
+    And Ir a Menu "Mesas de Trabajo" y submenu "Ver M.T"
+    When Hacer Clik en el nombre de la subgerencia area "<Area>"
+    Then Se visualizan los tipos de Mesas de Trabajo que tiene el area "<Area>"
+    And Se visualiza el numero de Solicitudes para el area "<Area>" sub area "<SubArea>"
+    When Presionar sobre el nombre de la primera mesa para el area "<Area>" sub area "<SubArea>"
+    Then Se despliega formulario Detalle Mesa
+    And Validar titulo "Solicitudes Asociadas a la Mesa" en la seccion central derecha para las solicitudes asociadas a la mesa
+    When Presionar sobre la primera solicitud disponible asociada a la mesa
+	Then Se despliega la pagina Detalle Proyecto
+	
+   Examples: ingresarMenuMesasDetalleSegundoNivel
+      | Usuario    | Contrasena | Rol                                               | Area                     | SubArea      |
+      | iroman     | sodimac123 | Gerencia de Planificacion, Desarrollo y Proyectos | Subgerencia Arquitectura | Construccion |
       

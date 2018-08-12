@@ -87,6 +87,11 @@ public class MesaTrabajoDetallePage extends BasePageAbstract {
 
   @FindBy(xpath = "//div[@id = 'cuerpo']//div[@id = 'cuerpoColumnaB']//div[@id='tablaSolicitudes_wrapper']//div[@class='dataTables_scrollBody']//tbody/tr")
   private List<WebElement> contenidoTablaCuerpoColumnaB;
+
+  // TABLA SOLICITUDES - SOLICITUDES
+  @FindBy(xpath = "id('tablaSolicitudes')/tbody[1]/tr/td[@class='sorting_1']/span[@class='clickable']")
+  private List<WebElement> listaSolicitudesTercerNivel;
+
   // Constructor
   public MesaTrabajoDetallePage(WebDriver driver) {
     super(driver);
@@ -103,6 +108,10 @@ public class MesaTrabajoDetallePage extends BasePageAbstract {
 
   public List<WebElement> getContenidoCabeceraColumnaA() {
     return contenidoCabeceraColumnaA;
+  }
+
+  public List<WebElement> getlListaSolicitudesTercerNivel() {
+    return listaSolicitudesTercerNivel;
   }
 
   public WebElement getCabeceraColumnaB() {

@@ -1,5 +1,7 @@
 package pages.mesatrabajo;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertEquals;
@@ -127,6 +129,14 @@ public class MesaTrabajoDetalleActions {
 
     assertNotNull("FAILED: validarContenidoSeccionCentralSolicitudes contenido VACIO",
         mesaTrabajoDetallePage.getContenidoTablaCuerpoColumnaB());
+  }
+
+  public void presionarPrimeraSolicitudDisponibleMesa() throws Throwable {
+    assertNotNull("FAILED: presionarPrimeraSolicitudDisponibleMesa contenido VACIO",
+        mesaTrabajoDetallePage.getlListaSolicitudesTercerNivel());
+
+    JavascriptExecutor executor = (JavascriptExecutor) driver;
+    executor.executeScript("arguments[0].click()", mesaTrabajoDetallePage.getlListaSolicitudesTercerNivel().get(0));
   }
 
 }
