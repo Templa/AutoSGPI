@@ -19,7 +19,7 @@ public class HomePage extends BasePageAbstract {
   @FindBy(xpath = "//*[@id=\"contenedorNav\"]/aside/div/div/p[2]")
   private WebElement userDesignationText;
 
-  @FindBy(xpath = "//*[@id=\"contenedorNav\"]/aside/ul/li")
+  @FindBy(xpath = "//*[@id='contenedorNav']/aside/ul/li")
   private List<WebElement> asideMenuList;
 
   @FindBy(css = "#contenedorNav > header > a.app-sidebar__toggle")

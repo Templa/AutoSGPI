@@ -1,5 +1,5 @@
 @IngresoSolicitudes
-Feature: Home
+Feature: Solicitudes
   
   # (datos incompletos) Cuales son los datos obligatorios ??
   @ingresarSolicitudObrasNuevasDatosIncompletos
