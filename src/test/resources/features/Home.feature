@@ -45,8 +45,8 @@ Feature: Home
     And El usuario ve la opcion "Dashboard" en el Menu del lado izquierdo de la pantalla
  	And El usuario ve la opcion "Sol.Proyectos Chile" en el Menu del lado izquierdo de la pantalla
  	And En "Sol.Proyectos Chile" se ve el submenu "Ingreso de Solicitudes"
- 	And En "Sol.Proyectos Chile" se ve el submenu "Seguimiento Sol.Recibidas"
- 	And En "Sol.Proyectos Chile" se ve el submenu "Seguimiento Sol.Enviadas"
+ 	And En "Sol.Proyectos Chile" se ve el submenu "Seguimiento Sol. Recibidas"
+ 	And En "Sol.Proyectos Chile" se ve el submenu "Seguimiento Sol. Enviadas"
  	And El usuario ve la opcion "Mesas de Trabajo" en el Menu del lado izquierdo de la pantalla
  	And En "Mesas de Trabajo" se ve el submenu "Ver MT"
  	And En "Mesas de Trabajo" se ve el submenu "Crear MT"

@@ -178,5 +178,5 @@ Feature: Mesas de trabajo
     And El usuario no ve la opcion "Mesas de Trabajo" en el Menu del lado izquierdo de la pantalla
 
     Examples: validarNoExistaMesasTrabajoRolSubgerenteDesarrollo
-      | Usuario  | Contrasena | Rol              |
-      | cwaidele | sodimac123 | Visual-Comercial |
+      | Usuario  | Contrasena | Rol                    |
+      | cwaidele | sodimac123 | Subgerencia Desarrollo |
